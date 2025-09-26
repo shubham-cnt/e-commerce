@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuthStore } from '../../stores/auth'
 import AuthGuard from '../authGuard'
+import {Label} from '../../components/ui/label'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -98,9 +99,9 @@ export default function LoginPage() {
           >
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 sr-only">
+                <Label htmlFor="email" className="block text-sm font-medium text-gray-700 sr-only">
                   Email address
-                </label>
+                </Label>
                 <input
                   id="email"
                   ref={emailRef}
@@ -118,9 +119,9 @@ export default function LoginPage() {
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 sr-only">
+                <Label htmlFor="password" className="block text-sm font-medium text-gray-700 sr-only">
                   Password
-                </label>
+                </Label>
                 <input
                   id="password"
                   name="password"
