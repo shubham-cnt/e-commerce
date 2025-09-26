@@ -19,10 +19,10 @@ export default function HomePage() {
                 <>
                   <span>Welcome, {user?.name}</span>
                   <Link 
-                    href="/dashboard" 
+                    href="/home" 
                     className="text-blue-600 hover:text-blue-800"
                   >
-                    Dashboard
+                    Home
                   </Link>
                 </>
               ) : (
@@ -51,15 +51,15 @@ export default function HomePage() {
             <div className="space-y-4">
               <p className="text-green-600">You are logged in!</p>
               <Link 
-                href="/dashboard"
+                href="/home"
                 className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
               >
-                Go to Dashboard
+                Go to Home
               </Link>
             </div>
           ) : (
             <div className="space-y-4">
-              <p className="text-gray-600">Please log in to access the dashboard</p>
+              <p className="text-gray-600">Please log in to access the home page</p>
               <Link 
                 href="/login"
                 className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"

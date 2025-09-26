@@ -1,3 +1,5 @@
+'use client'
+
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -13,14 +15,14 @@ interface AuthState {
   login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>
   logout: () => void
   isLoading: boolean
+  error: string | null
 }
 
-// Mock user data
 const MOCK_USERS = [
   {
     id: '1',
     email: 'user@example.com',
-    password: 'password123', // In real app, never store plain passwords
+    password: 'password123',
     name: 'John Doe'
   },
   {
@@ -33,15 +35,15 @@ const MOCK_USERS = [
 
 export const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       isAuthenticated: false,
       isLoading: false,
+      error: null,
 
       login: async (email: string, password: string) => {
-        set({ isLoading: true })
+        set({ isLoading: true, error: null })
 
-        // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 1000))
 
         const user = MOCK_USERS.find(u => u.email === email && u.password === password)
@@ -51,15 +53,14 @@ export const useAuthStore = create<AuthState>()(
           set({ 
             user: userWithoutPassword, 
             isAuthenticated: true,
-            isLoading: false 
+            isLoading: false,
+            error: null
           })
           return { success: true }
         } else {
-          set({ isLoading: false })
-          return { 
-            success: false, 
-            error: 'Invalid email or password' 
-          }
+          const error = 'Invalid email or password. Please try again.'
+          set({ isLoading: false, error })
+          return { success: false, error }
         }
       },
 
@@ -67,7 +68,8 @@ export const useAuthStore = create<AuthState>()(
         set({ 
           user: null, 
           isAuthenticated: false,
-          isLoading: false 
+          isLoading: false,
+          error: null
         })
       }
     }),
