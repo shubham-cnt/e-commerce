@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useAuthStore } from '../../stores/auth'
 import AuthGuard from '../authGuard'
 import {Label} from '../../components/ui/label'
+import {Button} from '../../components/ui/button'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -140,7 +141,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <button
+              <Button
                 type="submit"
                 disabled={loading}
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-colors duration-200"
@@ -159,7 +160,7 @@ export default function LoginPage() {
                 ) : (
                   'Sign in'
                 )}
-              </button>
+              </Button>
             </div>
 
             {/* Demo credentials with proper semantics */}

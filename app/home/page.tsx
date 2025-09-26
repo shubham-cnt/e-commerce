@@ -2,6 +2,7 @@
 
 import { useAuthStore } from '../../stores/auth'
 import AuthGuard from '../authGuard'
+import {Button} from '../../components/ui/button'
 
 export default function HomePage() {
   const { user, logout } = useAuthStore()
@@ -89,7 +90,7 @@ export default function HomePage() {
                 <h2 id="actions-heading" className="text-lg leading-6 font-medium text-gray-900 mb-4">
                   Account Actions
                 </h2>
-                <button
+                <Button
                   onClick={handleLogout}
                   onKeyDown={handleKeyDown}
                   className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
@@ -99,7 +100,7 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                   </svg>
                   Sign Out
-                </button>
+                </Button>
               </div>
             </section>
           </div>
