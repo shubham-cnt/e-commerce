@@ -3,6 +3,7 @@
 import { useAuthStore } from '../../stores/auth'
 import AuthGuard from '../authGuard'
 import {Button} from '../../components/ui/button'
+import {Card} from '../../components/ui/card'
 
 export default function HomePage() {
   const { user, logout } = useAuthStore()
@@ -33,8 +34,9 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {/* Profile Information Card */}
+            <Card               className="bg-white overflow-hidden shadow rounded-lg"
+>
             <section 
-              className="bg-white overflow-hidden shadow rounded-lg"
               aria-labelledby="profile-heading"
             >
               <div className="px-4 py-5 sm:p-6">
@@ -57,10 +59,12 @@ export default function HomePage() {
                 </dl>
               </div>
             </section>
+            </Card>
 
             {/* Authentication Status Card */}
+            <Card               className="bg-white overflow-hidden shadow rounded-lg"
+>
             <section 
-              className="bg-white overflow-hidden shadow rounded-lg"
               aria-labelledby="auth-status-heading"
             >
               <div className="px-4 py-5 sm:p-6">
@@ -80,10 +84,12 @@ export default function HomePage() {
                 </div>
               </div>
             </section>
+            </Card>
 
             {/* Actions Card */}
+            <Card               className="bg-white overflow-hidden shadow rounded-lg"
+>
             <section 
-              className="bg-white overflow-hidden shadow rounded-lg"
               aria-labelledby="actions-heading"
             >
               <div className="px-4 py-5 sm:p-6">
@@ -103,9 +109,18 @@ export default function HomePage() {
                 </Button>
               </div>
             </section>
+            </Card>
           </div>
         </div>
       </div>
+
+      {/* Skip link for keyboard users */}
+          <a 
+            href="#main-content" 
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white p-2 text-blue-600"
+          >
+            Skip to main content
+          </a>
     </AuthGuard>
   )
 }

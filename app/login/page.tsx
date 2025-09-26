@@ -6,6 +6,7 @@ import { useAuthStore } from '../../stores/auth'
 import AuthGuard from '../authGuard'
 import {Label} from '../../components/ui/label'
 import {Button} from '../../components/ui/button'
+import {Card} from '../../components/ui/card'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -66,7 +67,7 @@ export default function LoginPage() {
 
           {/* Alert for screen readers */}
           {(storeError || localError) && (
-            <div 
+            <Card 
               ref={errorRef}
               tabIndex={-1}
               className="rounded-md bg-red-50 p-4"
@@ -89,7 +90,7 @@ export default function LoginPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
           )}
 
           <form 
@@ -164,6 +165,7 @@ export default function LoginPage() {
             </div>
 
             {/* Demo credentials with proper semantics */}
+            <Card className="p-4 bg-yellow-50 border border-yellow-400 text-center text-sm text-gray-600">
             <section aria-label="Demo credentials" className="text-center">
               <h2 className="text-sm font-medium text-gray-600 mb-2">Demo credentials:</h2>
               <div className="text-sm text-gray-600 space-y-1">
@@ -173,15 +175,8 @@ export default function LoginPage() {
                 <p><strong>Password:</strong> admin123</p>
               </div>
             </section>
+            </Card>
           </form>
-
-          {/* Skip link for keyboard users */}
-          {/* <a 
-            href="#main-content" 
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white p-2 text-blue-600"
-          >
-            Skip to main content
-          </a> */}
         </div>
       </div>
     </AuthGuard>
