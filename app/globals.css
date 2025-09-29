@@ -116,7 +116,27 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Video background accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .videoBackground {
+    display: none;
+  }
+}
+
+/* Text styles for video overlay */
+.heroText {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .heroText {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
 }
