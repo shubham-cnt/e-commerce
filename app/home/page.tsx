@@ -41,7 +41,7 @@ export default function DashboardPage() {
             <source src="/videos/background.mp4" type="video/mp4" />
             {/* Fallback image if video doesn't load */}
             <img
-              src="/images/dashboard-hero-fallback.jpg"
+              src="/images/fallbackVideo.jpg"
               alt="Abstract background pattern"
               className="w-full h-full object-cover"
             />
