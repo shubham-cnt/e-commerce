@@ -17,12 +17,12 @@ export default function CartPage() {
 
   const { isAuthenticated } = useAuthStore();
 
-  const handleQuantityChange = (itemId: string, newQuantity: number) => {
+  const handleQuantityChange = (itemId: number, newQuantity: number) => {
     if (newQuantity < 1) return;
     updateQuantity(itemId, newQuantity);
   };
 
-  const handleRemoveItem = (itemId: string) => {
+  const handleRemoveItem = (itemId: number) => {
     removeItem(itemId);
   };
 
